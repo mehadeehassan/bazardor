@@ -34,7 +34,7 @@ export default async function RootLayout({ children }) {
     <html lang="bn" data-theme="bazardor">
       <body className="flex min-h-screen flex-col">
         <Header categories={categories} user={session?.user} />
-        <Suspense fallback={<div className="h-[37px] border-b border-base-300 bg-base-100" />}>
+        <Suspense fallback={<div className="h-9.25 border-b border-base-300 bg-base-100" />}>
           <PriceTicker />
         </Suspense>
         <main className="flex-1">{children}</main>

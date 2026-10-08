@@ -52,7 +52,7 @@ export default function SignUpForm() {
       <FormField
         label="নাম"
         name="name"
-        placeholder="যেমন: রহিম উদ্দিন"
+        placeholder="আপনার নাম লিখুন"
         autoComplete="name"
       />
       <FormField
