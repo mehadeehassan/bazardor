@@ -8,7 +8,8 @@ import "@fontsource/hind-siliguri/latin-500.css";
 import "@fontsource/hind-siliguri/latin-600.css";
 import "@fontsource/hind-siliguri/latin-700.css";
 import "./globals.css";
-import { getCategories, getProducts } from "@/lib/api";
+import { Suspense } from "react";
+import { getCategories } from "@/lib/api";
 import { getSession } from "@/lib/session";
 import Header from "@/components/layout/Header";
 import PriceTicker from "@/components/layout/PriceTicker";
@@ -24,9 +25,8 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const [categories, products, session] = await Promise.all([
+  const [categories, session] = await Promise.all([
     getCategories(),
-    getProducts(),
     getSession(),
   ]);
 
@@ -34,7 +34,9 @@ export default async function RootLayout({ children }) {
     <html lang="bn" data-theme="bazardor">
       <body className="flex min-h-screen flex-col">
         <Header categories={categories} user={session?.user} />
-        <PriceTicker products={products} />
+        <Suspense fallback={<div className="h-[37px] border-b border-base-300 bg-base-100" />}>
+          <PriceTicker />
+        </Suspense>
         <main className="flex-1">{children}</main>
         <Footer />
         <Toaster position="top-center" />

@@ -1,3 +1,4 @@
+import { getProducts } from "@/lib/api";
 import { formatNumber, formatPercent, unitLabel } from "@/lib/format";
 
 const ARROWS = { up: "▲", down: "▼", flat: "—" };
@@ -25,7 +26,9 @@ function TickerItem({ product }) {
 }
 
 /** Endless strip of today's prices. The list is rendered twice for a seamless loop. */
-export default function PriceTicker({ products }) {
+export default async function PriceTicker() {
+  const products = await getProducts();
+
   return (
     <div
       className="ticker overflow-hidden border-b border-base-300 bg-base-100"
