@@ -65,12 +65,6 @@ Open http://localhost:3000.
 | `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` | GitHub OAuth credentials |
 | `NEXT_PUBLIC_API_BASE_URL` | Product data API |
 
-
-## Notes
-
-- Colors, spacing and layout follow the Figma design. Where the Figma file and the written requirements differ, the Figma design was followed: the name update form sits on the profile page itself, and the user menu has only "আমার প্রোফাইল" and "সাইন আউট".
-- Product prices are cached for five minutes.
-
 ## License
 
 Made for a learning assignment.
