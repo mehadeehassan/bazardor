@@ -20,7 +20,7 @@ function Chevron() {
 /** items: [{ label, href? }], the last one is the current page */
 export default function Breadcrumbs({ items }) {
   return (
-    <nav aria-label="breadcrumb" className="text-sm">
+    <nav aria-label="breadcrumb" className="py-2 text-sm">
       <ol className="flex flex-wrap items-center gap-2">
         {items.map((item, index) => (
           <li key={item.label} className="flex items-center gap-2">

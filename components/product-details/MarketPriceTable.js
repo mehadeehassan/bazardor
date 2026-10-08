@@ -7,7 +7,7 @@ export default function MarketPriceTable({ rows }) {
       <h2 className="text-lg/7 font-semibold">বাজারভিত্তিক আজকের দাম</h2>
 
       <div className="overflow-x-auto rounded-2xl border border-base-300 bg-base-100">
-        <table className="table table-zebra min-w-[640px]">
+        <table className="table table-zebra min-w-[640px] leading-normal">
           <thead>
             <tr className="text-sm text-base-content/60">
               <th className="font-bold">বাজার</th>

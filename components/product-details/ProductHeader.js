@@ -44,7 +44,7 @@ export default function ProductHeader({ product }) {
         <p className="text-sm text-base-content/70">
           টাকা / {unitLabel(product.unit)}
         </p>
-        <div className="mt-[3px]">
+        <div className="mt-[3px] text-sm">
           <PriceChange change={product.change} variant="inline" />
         </div>
       </div>
