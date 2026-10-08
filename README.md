@@ -1,37 +1,86 @@
-# বাজার দর (BazarDor)
+<div align="center">
 
-প্রয়োজনীয় পণ্যের আজকের দাম এক নজরে। চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম-দুধ ও মসলার বাজারভিত্তিক দাম, সর্বনিম্ন-সর্বাধিক-গড় এবং আগের দিনের তুলনায় পরিবর্তন এক জায়গায় দেখা যায়।
+# 🛒 বাজার দর · BazarDor
+
+**প্রয়োজনীয় পণ্যের আজকের দাম এক নজরে।**
+
+</div>
+
+## About
+
+BazarDor is a grocery price tracker for Bangladesh. It shows today's price of everyday items such as rice, lentils, oil, vegetables, fish, meat, eggs, dairy and spices, how each price changed since yesterday, and the lowest, highest and average price across different markets.
 
 ## Technologies
 
-- Next.js (App Router) and JavaScript
-- Tailwind CSS 4 with daisyUI
-- BetterAuth (email/password, Google, GitHub) with MongoDB
-- react-hot-toast
-- Hind Siliguri font (via Fontsource)
+| Purpose | Tool |
+| --- | --- |
+| Framework | Next.js 16 (App Router), JavaScript / JSX |
+| Styling | Tailwind CSS 4, daisyUI |
+| Authentication | BetterAuth (email and password, Google, GitHub) |
+| Database | MongoDB (used by BetterAuth for users and sessions) |
+| Notifications | react-hot-toast |
+| Font | Hind Siliguri (Fontsource) |
 
 ## Features
 
-1. Home page with hero, top 6 price risers, top 6 fallers and the full product grid
-2. Infinite scrolling price ticker and category navigation with an active state
-3. Category pages with a sort control (default, low to high, high to low) and skeleton loading
-4. Product details page (sign in required) with min / max / average price and a market-wise price table
-5. Email/password, Google and GitHub authentication with toast messages
-6. Profile page where the signed in user can update their name
-7. Responsive on mobile, tablet and desktop, with a friendly 404 page
+1. **Live price ticker**: an endless scrolling strip with every product, its price and daily change.
+2. **Home page**: hero section, top 6 price risers, top 6 fallers and the full product grid.
+3. **Category pages**: sort by default, price low to high or high to low (sorted by number, not text), with skeleton loading and an empty state.
+4. **Product details**: minimum, maximum and average price plus a market-wise price table. Available after sign in only.
+5. **Authentication**: email/password, Google and GitHub sign in, with toast messages for success, errors and protected-route redirects.
+6. **Profile**: view account information, update your name and sign out.
+7. **Responsive design**: works on mobile, tablet and desktop, with a friendly 404 page for unknown routes.
 
-## Getting started
+## Project structure
+
+```
+src/
+├── app/            Pages and routes (home, category, product, signin, signup, profile, api/auth)
+├── components/     UI split by area: layout, home, products, product-details, auth, ui
+├── lib/            API client, auth setup, formatting and product helpers, validation
+└── proxy.js        Redirects signed-out visitors away from protected pages
+public/             Hero image
+```
+
+## Run locally
 
 ```bash
 npm install
-cp .env.example .env.local   # then fill in the values
+cp .env.example .env.local
+# fill in the values in .env.local (see below)
 npm run dev
 ```
 
 Open http://localhost:3000.
 
-OAuth callback URLs: `<your-url>/api/auth/callback/google` and `<your-url>/api/auth/callback/github`.
+## Environment variables
 
-## Deployment
+| Name | What it is |
+| --- | --- |
+| `BETTER_AUTH_URL` | Public URL of the app (`http://localhost:3000` locally) |
+| `BETTER_AUTH_SECRET` | Random string, at least 32 characters |
+| `MONGODB_URI` | MongoDB connection string |
+| `MONGODB_DB_NAME` | Database name, `bazardor` |
+| `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` | Google OAuth credentials |
+| `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` | GitHub OAuth credentials |
+| `NEXT_PUBLIC_API_BASE_URL` | Product data API |
 
-Deploy on Vercel and add every variable from `.env.example` in the project settings. Set `BETTER_AUTH_URL` to the deployed URL.
+## What you need to do before submitting
+
+- [ ] **MongoDB**: create a free cluster on MongoDB Atlas, add a database user, allow network access from anywhere (`0.0.0.0/0`, needed for Vercel) and copy the connection string into `MONGODB_URI`.
+- [ ] **Secret**: generate one with `openssl rand -base64 32` and put it in `BETTER_AUTH_SECRET`.
+- [ ] **Google login**: in Google Cloud Console create an OAuth client (Web application). Add `http://localhost:3000/api/auth/callback/google` and `<your-vercel-url>/api/auth/callback/google` as redirect URIs.
+- [ ] **GitHub login**: in GitHub Developer settings create an OAuth App. Set the callback URL to `<your-vercel-url>/api/auth/callback/github` (use a second app for localhost, because GitHub allows one callback URL per app).
+- [ ] **Git**: create a GitHub repository and push this project with its commit history.
+- [ ] **Deploy on Vercel**: import the repository, add every variable above, then set `BETTER_AUTH_URL` to the deployed URL and redeploy.
+- [ ] **Test after deployment**: sign up, sign in, open a product page, refresh it, update your name on the profile page, sign out, and try Google and GitHub login.
+- [ ] **Submit**: the live link and the GitHub repository link.
+
+## Notes
+
+- Colors, spacing and layout follow the Figma design. Where the Figma file and the written requirements differ, the Figma design was followed: the name update form sits on the profile page itself, and the user menu has only "আমার প্রোফাইল" and "সাইন আউট".
+- Product prices are cached for five minutes.
+
+## License
+
+Made for a learning assignment.
