@@ -1,6 +1,7 @@
 {
   "name": "bazardor",
   "version": "1.0.0",
+  "description": "বাজার দর - daily essential grocery prices in Bangladesh",
   "private": true,
   "scripts": {
     "dev": "next dev",
