@@ -32,7 +32,7 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="bn" data-theme="bazardor">
-      <body className="flex min-h-screen flex-col">
+      <body className="flex min-h-screen flex-col" suppressHydrationWarning>
         <Header categories={categories} user={session?.user} />
         <Suspense fallback={<div className="h-9.25 border-b border-base-300 bg-base-100" />}>
           <PriceTicker />
