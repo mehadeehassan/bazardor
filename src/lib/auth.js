@@ -3,8 +3,7 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { nextCookies } from "better-auth/next-js";
 import { MongoClient } from "mongodb";
 
-// The local fallback only keeps `next build` working without env vars;
-// real deployments must set MONGODB_URI.
+
 const client = new MongoClient(
   process.env.MONGODB_URI || "mongodb://127.0.0.1:27017"
 );
@@ -15,7 +14,6 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     minPasswordLength: 8,
-    // After signing up the user is sent to the sign in page
     autoSignIn: false,
   },
   socialProviders: {
@@ -28,6 +26,5 @@ export const auth = betterAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET ?? "",
     },
   },
-  // must stay the last plugin
   plugins: [nextCookies()],
 });

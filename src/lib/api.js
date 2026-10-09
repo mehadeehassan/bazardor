@@ -3,7 +3,6 @@ const PRIMARY_API =
   "https://api.api-store.workers.dev/api/bazardor";
 const BACKUP_API = "https://api.abcz.workers.dev/api/bazardor";
 
-// Prices change once a day, so a few minutes of caching is plenty
 const REVALIDATE_SECONDS = 300;
 
 async function request(path) {
@@ -37,13 +36,13 @@ export function getProducts(categorySlug) {
   return request(`/products${query}`);
 }
 
-/** Returns undefined when no product has this slug */
+
 export async function getProductBySlug(slug) {
   const products = await getProducts();
   return products.find((product) => product.slug === slug);
 }
 
-/** Returns undefined when no category has this slug */
+
 export async function getCategoryBySlug(slug) {
   const categories = await getCategories();
   return categories.find((category) => category.slug === slug);

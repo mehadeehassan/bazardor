@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 
-/** 404-style message with a way back home. Used for unknown routes and empty categories. */
 export default function NotFoundMessage({
   title = "পেজটি খুঁজে পাওয়া যায়নি",
   description = "আপনি যে পেজটি খুঁজছেন সেটি নেই বা সরিয়ে ফেলা হয়েছে।",

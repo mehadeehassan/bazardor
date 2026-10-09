@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-/** Profile picture, or the first letter of the name when there is none. */
 export default function Avatar({ user, className = "size-9 rounded-[10px]" }) {
   const initial = (user.name || user.email || "?").trim().charAt(0);
 

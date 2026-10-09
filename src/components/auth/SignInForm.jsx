@@ -14,7 +14,7 @@ export default function SignInForm({ redirectTo, loginRequired }) {
   const router = useRouter();
   const [pending, setPending] = useState(false);
 
-  // Sent here from a protected page
+
   useEffect(() => {
     if (loginRequired) {
       toast.error("এই পেজ দেখতে আগে সাইন ইন করুন।", { id: "login-required" });

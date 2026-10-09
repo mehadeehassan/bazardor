@@ -6,10 +6,6 @@ const STYLES = {
   flat: { arrow: "—", color: "text-base-content" },
 };
 
-/**
- * Arrow + percentage of today's price change.
- * "badge" is the pill used on product cards, "inline" is plain text.
- */
 export default function PriceChange({ change, variant = "badge" }) {
   const { arrow, color } = STYLES[change.dir];
   const percent = formatPercent(change.pct);

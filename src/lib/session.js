@@ -3,12 +3,12 @@ import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 
 /**
- * Current session or null. Cached so a request only hits the database once.
- * If the database is unreachable the visitor is treated as signed out,
- * so the public pages keep working.
+ * - বর্তমান সেশন বা null। ক্যাশ করা থাকে যাতে প্রতি রিকুয়েস্টে ডেটাবেসে মাত্র একবার হিট করে।
+ * - যদি ডেটাবেস কানেক্ট না করা যায়, তবে ভিজিটরকে সাইন-আউট হিসেবে ধরা হবে,
+ * - যাতে পাবলিক পেজগুলো স্বাভাবিকভাবে কাজ করতে পারে।
  */
 export const getSession = cache(async () => {
-  // read outside the try block: Next.js signals "this page is dynamic" by throwing
+// try ব্লকের বাইরে রিড করা হচ্ছে: Next.js একটি এরর থ্রো করে সংকেত দেয় যে "এই পেজটি ডাইনামিক"
   const requestHeaders = await headers();
 
   try {

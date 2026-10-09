@@ -4,7 +4,7 @@ export const SORT_OPTIONS = [
   { value: "price-desc", label: "দাম: বেশি থেকে কম" },
 ];
 
-/** Top movers for the home page: the biggest rises or falls first */
+/** হোম পেজের জন্য শীর্ষ পরিবর্তনকারী: সবচেয়ে বেশি দর বৃদ্ধি বা পতনগুলো আগে থাকবে */
 export function getTopMovers(products, direction, limit = 6) {
   return products
     .filter((product) => product.change.dir === direction)
@@ -12,7 +12,7 @@ export function getTopMovers(products, direction, limit = 6) {
     .slice(0, limit);
 }
 
-/** Sorts by the numeric price, so 1,850 is never compared as text */
+/** সংখ্যার মান অনুসারে প্রাইস সর্ট করে, যেন ১,৮৫০ টেক্সট হিসেবে তুলনা না হয় */
 export function sortProducts(products, order) {
   if (order === "price-asc") {
     return [...products].sort((a, b) => a.today - b.today);
@@ -27,7 +27,7 @@ function marketAverage(market) {
   return (market.min + market.max) / 2;
 }
 
-/** Markets with their average price, cheapest first */
+/** গড় প্রাইস অনুযায়ী বাজারগুলোর তালিকা, সবচেয়ে সস্তা বাজারটি সবার আগে থাকবে */
 export function getMarketRows(markets) {
   return markets
     .map((market) => ({ ...market, average: marketAverage(market) }))

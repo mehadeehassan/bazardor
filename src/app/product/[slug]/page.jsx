@@ -17,7 +17,6 @@ export async function generateMetadata({ params }) {
 export default async function ProductDetailsPage({ params }) {
   const { slug } = await params;
 
-  // Only signed in users can see the details
   const session = await getSession();
   if (!session) {
     redirect(`/signin?redirect=/product/${slug}&reason=login-required`);

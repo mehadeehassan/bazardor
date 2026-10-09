@@ -17,7 +17,6 @@ function Chevron() {
   );
 }
 
-/** items: [{ label, href? }], the last one is the current page */
 export default function Breadcrumbs({ items }) {
   return (
     <nav aria-label="breadcrumb" className="py-2 text-sm">

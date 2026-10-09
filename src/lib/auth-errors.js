@@ -10,7 +10,7 @@ const MESSAGES = {
 
 const FALLBACK_MESSAGE = "কিছু একটা সমস্যা হয়েছে, আবার চেষ্টা করুন।";
 
-/** Turns a BetterAuth error into a message the user can read */
+
 export function getAuthErrorMessage(error) {
   return MESSAGES[error?.code] ?? FALLBACK_MESSAGE;
 }

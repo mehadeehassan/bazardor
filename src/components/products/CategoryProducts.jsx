@@ -5,7 +5,7 @@ import { formatCount } from "@/lib/format";
 import { SORT_OPTIONS, sortProducts } from "@/lib/products";
 import ProductGrid from "@/components/products/ProductGrid";
 
-/** Sort bar, product count and the grid of products for one category */
+
 export default function CategoryProducts({ products }) {
   const [order, setOrder] = useState("default");
   const sortedProducts = sortProducts(products, order);

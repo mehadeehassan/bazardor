@@ -3,9 +3,9 @@ import { formatBanglaDate } from "@/lib/format";
 
 export default function Hero() {
   return (
-    <section className="rounded-3xl border border-base-300 bg-base-100 px-4 py-4 md:py-[9px]">
+    <section className="rounded-3xl border border-base-300 bg-base-100 px-4 py-4 md:py-2.25">
       <div className="flex flex-col items-center gap-6 md:flex-row md:items-start md:justify-between">
-        <div className="md:w-[576px]">
+        <div className="md:w-xl">
           <p className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
             {formatBanglaDate()}
           </p>
@@ -30,7 +30,7 @@ export default function Hero() {
           width={315}
           height={263}
           priority
-          className="h-auto w-[315px] max-w-full"
+          className="h-auto w-78.75 max-w-full"
         />
       </div>
     </section>

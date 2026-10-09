@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 
-/** Title, subtitle, card and the way back home shared by sign in and sign up */
+
 export default function AuthLayout({ title, subtitle, children }) {
   return (
     <Container size="md" className="space-y-6 py-10">

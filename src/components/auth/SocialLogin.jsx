@@ -10,7 +10,7 @@ const PROVIDERS = [
   { id: "github", label: "GitHub দিয়ে চালিয়ে যান", Icon: GitHubIcon },
 ];
 
-/** "অথবা" divider and the Google / GitHub buttons */
+
 export default function SocialLogin({ callbackURL = "/" }) {
   const [pendingProvider, setPendingProvider] = useState(null);
 
@@ -18,7 +18,7 @@ export default function SocialLogin({ callbackURL = "/" }) {
     setPendingProvider(provider);
     const { error } = await authClient.signIn.social({ provider, callbackURL });
 
-    // On success the browser leaves for the provider, so we only get here on failure
+
     if (error) {
       toast.error("সোশ্যাল লগইন করা যায়নি, আবার চেষ্টা করুন।");
       setPendingProvider(null);

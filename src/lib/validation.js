@@ -1,7 +1,7 @@
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MIN_PASSWORD_LENGTH = 8;
 
-/** Each validator returns an error message in Bangla, or null when the input is fine. */
+/**ইনপুট সঠিক হলে null, অন্যথায় বাংলায় এরর মেসেজ রিটার্ন করে */
 
 export function validateSignIn({ email, password }) {
   if (!email || !password) return "ইমেইল ও পাসওয়ার্ড দুটোই দিন।";

@@ -1,4 +1,4 @@
-/** Centered page column. Width follows the Figma grid (1152px incl. padding). */
+
 export default function Container({ size = "6xl", className = "", children }) {
   const widths = {
     md: "max-w-md",

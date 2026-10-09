@@ -38,13 +38,13 @@ export default function ProductHeader({ product }) {
         <ChangeSentence product={product} />
       </div>
 
-      <div className="flex flex-col items-center rounded-2xl bg-base-200 px-5 py-4 text-center sm:w-[118px] sm:shrink-0">
+      <div className="flex flex-col items-center rounded-2xl bg-base-200 px-5 py-4 text-center sm:w-29.5 sm:shrink-0">
         <p className="text-sm text-base-content/70">আজকের দাম</p>
         <p className="text-3xl/9 font-bold">{formatNumber(product.today)}</p>
         <p className="text-sm text-base-content/70">
           টাকা / {unitLabel(product.unit)}
         </p>
-        <div className="mt-[3px] text-sm">
+        <div className="mt-0.75 text-sm">
           <PriceChange change={product.change} variant="inline" />
         </div>
       </div>

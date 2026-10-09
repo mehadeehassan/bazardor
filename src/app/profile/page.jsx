@@ -25,7 +25,7 @@ export default async function ProfilePage() {
       </div>
 
       <section className="flex flex-col gap-4 rounded-2xl border border-base-300 bg-base-100 p-6 sm:flex-row sm:items-center">
-        <Avatar user={user} className="h-[70px] w-20 rounded-2xl text-3xl" />
+        <Avatar user={user} className="h-17.5 w-20 rounded-2xl text-3xl" />
         <div className="min-w-0 flex-1">
           <p className="truncate text-xl/7">{user.name}</p>
           <p className="truncate text-base text-base-content/70">{user.email}</p>

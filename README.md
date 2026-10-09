@@ -65,22 +65,6 @@ Open http://localhost:3000.
 | `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` | GitHub OAuth credentials |
 | `NEXT_PUBLIC_API_BASE_URL` | Product data API |
 
-## What you need to do before submitting
-
-- [ ] **MongoDB**: create a free cluster on MongoDB Atlas, add a database user, allow network access from anywhere (`0.0.0.0/0`, needed for Vercel) and copy the connection string into `MONGODB_URI`.
-- [ ] **Secret**: generate one with `openssl rand -base64 32` and put it in `BETTER_AUTH_SECRET`.
-- [ ] **Google login**: in Google Cloud Console create an OAuth client (Web application). Add `http://localhost:3000/api/auth/callback/google` and `<your-vercel-url>/api/auth/callback/google` as redirect URIs.
-- [ ] **GitHub login**: in GitHub Developer settings create an OAuth App. Set the callback URL to `<your-vercel-url>/api/auth/callback/github` (use a second app for localhost, because GitHub allows one callback URL per app).
-- [ ] **Git**: create a GitHub repository and push this project with its commit history.
-- [ ] **Deploy on Vercel**: import the repository, add every variable above, then set `BETTER_AUTH_URL` to the deployed URL and redeploy.
-- [ ] **Test after deployment**: sign up, sign in, open a product page, refresh it, update your name on the profile page, sign out, and try Google and GitHub login.
-- [ ] **Submit**: the live link and the GitHub repository link.
-
-## Notes
-
-- Colors, spacing and layout follow the Figma design. Where the Figma file and the written requirements differ, the Figma design was followed: the name update form sits on the profile page itself, and the user menu has only "আমার প্রোফাইল" and "সাইন আউট".
-- Product prices are cached for five minutes.
-
 ## License
 
 Made for a learning assignment.

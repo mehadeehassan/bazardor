@@ -13,7 +13,6 @@ function SummaryStat({ label, value, caption, color }) {
   );
 }
 
-/** Lowest, highest and average price across all markets */
 export default function PriceSummary({ summary, unit }) {
   return (
     <section className="space-y-3">

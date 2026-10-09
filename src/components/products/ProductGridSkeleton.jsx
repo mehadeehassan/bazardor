@@ -1,13 +1,13 @@
 import { gridClasses } from "@/components/products/ProductGrid";
 
-/** Placeholder cards with the same size as ProductCard while data loads */
+
 export default function ProductGridSkeleton({ count = 6 }) {
   return (
     <div className={gridClasses} aria-busy="true" aria-label="লোড হচ্ছে">
       {Array.from({ length: count }, (_, index) => (
         <div
           key={index}
-          className="h-[138px] rounded-2xl border border-base-300 bg-base-100 p-4"
+          className="h-34.5 rounded-2xl border border-base-300 bg-base-100 p-4"
         >
           <div className="flex gap-3">
             <div className="skeleton size-12 rounded-xl" />

@@ -3,7 +3,7 @@ import SignInForm from "@/components/auth/SignInForm";
 
 export const metadata = { title: "সাইন ইন" };
 
-/** Only same-site paths are allowed as a redirect target */
+
 function safeRedirect(path) {
   return path?.startsWith("/") && !path.startsWith("//") ? path : "/";
 }

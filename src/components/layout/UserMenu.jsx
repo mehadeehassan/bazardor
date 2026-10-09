@@ -51,7 +51,7 @@ export default function UserMenu({ user }) {
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
         aria-haspopup="menu"
-        className="btn btn-ghost h-10 gap-2 px-[3px] pr-2 text-sm font-medium"
+        className="btn btn-ghost h-10 gap-2 px-0.75 pr-2 text-sm font-medium"
       >
         <Avatar user={user} />
         <span className="max-w-24 truncate">{user.name}</span>
@@ -76,7 +76,7 @@ export default function UserMenu({ user }) {
             href="/profile"
             role="menuitem"
             onClick={() => setOpen(false)}
-            className="flex h-[33px] items-center rounded-lg px-3 text-sm hover:bg-base-200"
+            className="flex h-8.25 items-center rounded-lg px-3 text-sm hover:bg-base-200"
           >
             👤 আমার প্রোফাইল
           </Link>
@@ -84,7 +84,7 @@ export default function UserMenu({ user }) {
             type="button"
             role="menuitem"
             onClick={handleSignOut}
-            className="flex h-[33px] w-full items-center rounded-lg px-3 text-sm text-error hover:bg-base-200"
+            className="flex h-8.25 w-full items-center rounded-lg px-3 text-sm text-error hover:bg-base-200"
           >
             ↩ সাইন আউট
           </button>

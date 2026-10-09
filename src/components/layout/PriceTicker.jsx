@@ -25,7 +25,7 @@ function TickerItem({ product }) {
   );
 }
 
-/** Endless strip of today's prices. The list is rendered twice for a seamless loop. */
+
 export default async function PriceTicker() {
   const products = await getProducts();
 

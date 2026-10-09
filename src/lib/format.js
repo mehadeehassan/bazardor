@@ -17,7 +17,7 @@ export function perUnitLabel(unit) {
   return `প্রতি ${unitLabel(unit)}`;
 }
 
-/** 1850 -> "১,৮৫০", 63.5 -> "৬৩.৫০" (whole numbers get no decimals) */
+/** 1850 -> "১,৮৫০", 63.5 -> "৬৩.৫০" */
 export function formatNumber(value) {
   const digits = Number.isInteger(value) ? 0 : 2;
   return value.toLocaleString(BANGLA_LOCALE, {
@@ -26,7 +26,7 @@ export function formatNumber(value) {
   });
 }
 
-/** 2.1 -> "২.১%" (the sign is shown separately through the arrow) */
+/** 2.1 -> "২.১%" */
 export function formatPercent(pct) {
   return `${Math.abs(pct).toLocaleString(BANGLA_LOCALE, {
     minimumFractionDigits: 1,
@@ -34,7 +34,7 @@ export function formatPercent(pct) {
   })}%`;
 }
 
-/** Plain integer in Bangla digits, e.g. the product count */
+/** 1000 -> "১,০০০" */
 export function formatCount(count) {
   return count.toLocaleString(BANGLA_LOCALE);
 }
