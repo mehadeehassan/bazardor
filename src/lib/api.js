@@ -1,28 +1,19 @@
-const PRIMARY_API =
+const API_BASE =
   process.env.NEXT_PUBLIC_API_BASE_URL ??
-  "https://api.api-store.workers.dev/api/bazardor";
-const BACKUP_API = "https://api.abcz.workers.dev/api/bazardor";
+  "https://openapi.programming-hero.com/api/bazardor";
+
 
 const REVALIDATE_SECONDS = 300;
 
 async function request(path) {
-  let lastError;
+  const response = await fetch(`${API_BASE}${path}`, {
+    next: { revalidate: REVALIDATE_SECONDS },
+  });
 
-  for (const base of [PRIMARY_API, BACKUP_API]) {
-    try {
-      const response = await fetch(`${base}${path}`, {
-        next: { revalidate: REVALIDATE_SECONDS },
-      });
-      if (!response.ok) {
-        throw new Error(`${response.status} ${response.statusText}`);
-      }
-      return await response.json();
-    } catch (error) {
-      lastError = error;
-    }
+  if (!response.ok) {
+    throw new Error(`Could not load ${path}: ${response.status}`);
   }
-
-  throw new Error(`Could not load ${path}: ${lastError?.message}`);
+  return response.json();
 }
 
 export function getCategories() {
